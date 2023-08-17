@@ -1,6 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 
+import Stateful from "./test/recducer/reducer";
+
 function App() {
   return (
     <div className="App">
@@ -18,6 +20,8 @@ function App() {
           Learn React
         </a>
       </header>
+
+      <Stateful initCount={1}></Stateful>
     </div>
   );
 }
