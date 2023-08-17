@@ -1,4 +1,4 @@
-import { useReducer } from "react";
+import { useEffect, useReducer } from "react";
 import './reducer.css';
 
 function reducer(state, action) {
@@ -15,6 +15,14 @@ function reducer(state, action) {
 function Stateful(props) {
     const { initCount } = props;
     const [state, dispatch] = useReducer(reducer, { count: initCount ?? 0});
+
+    useEffect(() => {
+        console.log("function component: mount/state change");
+
+        return () => {
+            console.log("function component: unmount");
+        };
+    }, [state]);
 
     return (
         <div className="userRecuder">
