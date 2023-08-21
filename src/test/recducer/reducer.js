@@ -17,11 +17,15 @@ function Stateful(props) {
     const [state, dispatch] = useReducer(reducer, { count: initCount ?? 0});
 
     useEffect(() => {
-        console.log("function component: mount/state change");
+        console.log("function component: mount");
 
         return () => {
             console.log("function component: unmount");
         };
+    });
+
+    useEffect(() => {
+        console.log("function component: state change");
     }, [state]);
 
     return (
